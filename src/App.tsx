@@ -17,6 +17,7 @@ import Community from "@/pages/Community";
 import Messages from "@/pages/Messages";
 import Stream from "@/pages/Stream";
 import UsersPage from "@/pages/UsersPage";
+import TeacherAnalytics from "@/pages/TeacherAnalytics";
 import NotFound from "@/pages/NotFound";
 
 const queryClient = new QueryClient();

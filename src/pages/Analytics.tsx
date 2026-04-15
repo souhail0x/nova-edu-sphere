@@ -31,7 +31,7 @@ const Analytics = () => (
             <XAxis dataKey="name" tick={{ fontSize: 12 }} />
             <YAxis tick={{ fontSize: 12 }} />
             <Tooltip />
-            <Bar dataKey="progress" fill="hsl(36 90% 55%)" radius={[4, 4, 0, 0]} />
+            <Bar dataKey="progress" fill="hsl(43 72% 47%)" radius={[4, 4, 0, 0]} />
           </BarChart>
         </ResponsiveContainer>
       </div>
