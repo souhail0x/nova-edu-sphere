@@ -23,7 +23,7 @@ const roleMenus = {
     { label: "Dashboard", icon: Home, path: "/dashboard" },
     { label: "My Courses", icon: BookOpen, path: "/dashboard/courses" },
     { label: "Exams & Quizzes", icon: FileText, path: "/dashboard/exams" },
-    { label: "Students", icon: GraduationCap, path: "/dashboard/students" },
+    { label: "Student Analytics", icon: BarChart3, path: "/dashboard/teacher-analytics" },
     { label: "Questions", icon: MessageSquare, path: "/dashboard/questions" },
     { label: "Calendar", icon: Calendar, path: "/dashboard/calendar" },
     { label: "Live Class", icon: Video, path: "/dashboard/stream" },

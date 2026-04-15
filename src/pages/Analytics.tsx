@@ -27,7 +27,7 @@ const Analytics = () => (
         <h3 className="font-heading font-semibold mb-4">Progression par cours</h3>
         <ResponsiveContainer width="100%" height={250}>
           <BarChart data={progressData}>
-            <CartesianGrid strokeDasharray="3 3" stroke="hsl(220 15% 90%)" />
+            <CartesianGrid strokeDasharray="3 3" stroke="hsl(216 20% 90%)" />
             <XAxis dataKey="name" tick={{ fontSize: 12 }} />
             <YAxis tick={{ fontSize: 12 }} />
             <Tooltip />
@@ -39,11 +39,11 @@ const Analytics = () => (
         <h3 className="font-heading font-semibold mb-4">Évolution des notes</h3>
         <ResponsiveContainer width="100%" height={250}>
           <LineChart data={gradesData}>
-            <CartesianGrid strokeDasharray="3 3" stroke="hsl(220 15% 90%)" />
+            <CartesianGrid strokeDasharray="3 3" stroke="hsl(216 20% 90%)" />
             <XAxis dataKey="month" tick={{ fontSize: 12 }} />
             <YAxis domain={[0, 20]} tick={{ fontSize: 12 }} />
             <Tooltip />
-            <Line type="monotone" dataKey="grade" stroke="hsl(220 70% 15%)" strokeWidth={2} dot={{ fill: "hsl(36 90% 55%)", r: 4 }} />
+            <Line type="monotone" dataKey="grade" stroke="hsl(217 75% 15%)" strokeWidth={2} dot={{ fill: "hsl(43 72% 47%)", r: 4 }} />
           </LineChart>
         </ResponsiveContainer>
       </div>

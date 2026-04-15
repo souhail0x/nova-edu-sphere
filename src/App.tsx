@@ -46,6 +46,7 @@ const AppRoutes = () => {
       <Route path="/dashboard/stream" element={<ProtectedRoute><Stream /></ProtectedRoute>} />
       <Route path="/dashboard/users" element={<ProtectedRoute><UsersPage /></ProtectedRoute>} />
       <Route path="/dashboard/students" element={<ProtectedRoute><UsersPage /></ProtectedRoute>} />
+      <Route path="/dashboard/teacher-analytics" element={<ProtectedRoute><TeacherAnalytics /></ProtectedRoute>} />
       <Route path="/dashboard/questions" element={<ProtectedRoute><Messages /></ProtectedRoute>} />
       <Route path="/dashboard/announcements" element={<ProtectedRoute><Community /></ProtectedRoute>} />
       <Route path="/dashboard/settings" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
