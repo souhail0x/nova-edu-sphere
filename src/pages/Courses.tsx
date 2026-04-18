@@ -44,6 +44,7 @@ const Courses = () => {
         <AddCourseDialog
           open={open}
           onOpenChange={setOpen}
+          instructorName={user?.name ?? "Enseignant"}
           onCreated={(course) => {
             setCourses((prev) => [
               {
