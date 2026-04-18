@@ -3,19 +3,21 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } f
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { FileUp, PencilLine, Upload, FileText, Trash2, X } from "lucide-react";
+import { FileUp, PencilLine, Upload, FileText, Trash2, X, Pencil, Check } from "lucide-react";
 import RichTextEditor from "./RichTextEditor";
+import CoursePreview from "./CoursePreview";
 import { toast } from "@/hooks/use-toast";
 
-type Step = "choice" | "import" | "form" | "editor" | "supports";
+type Step = "choice" | "import" | "form" | "editor" | "preview" | "supports";
 
 interface AddCourseDialogProps {
   open: boolean;
   onOpenChange: (open: boolean) => void;
+  instructorName?: string;
   onCreated?: (course: { title: string; chapter: string; content: string; supports: string[] }) => void;
 }
 
-const AddCourseDialog: React.FC<AddCourseDialogProps> = ({ open, onOpenChange, onCreated }) => {
+const AddCourseDialog: React.FC<AddCourseDialogProps> = ({ open, onOpenChange, instructorName, onCreated }) => {
   const [step, setStep] = useState<Step>("choice");
   const [title, setTitle] = useState("");
   const [chapter, setChapter] = useState("");
@@ -185,12 +187,40 @@ const AddCourseDialog: React.FC<AddCourseDialogProps> = ({ open, onOpenChange, o
             <RichTextEditor value={content} onChange={setContent} />
             <div className="flex justify-between gap-2 mt-2">
               <Button variant="ghost" onClick={() => setStep("form")}>Retour</Button>
-              <Button onClick={() => setStep("supports")}>Terminer le chapitre</Button>
+              <Button onClick={() => setStep("preview")} disabled={!content.trim()}>
+                Terminer le chapitre
+              </Button>
             </div>
           </>
         )}
 
-        {/* STEP 4 — SUPPORTS */}
+        {/* STEP 4 — PREVIEW */}
+        {step === "preview" && (
+          <>
+            <DialogHeader>
+              <DialogTitle className="font-heading">Prévisualisation du cours</DialogTitle>
+              <DialogDescription>
+                Voici le rendu tel qu'il sera affiché aux étudiants.
+              </DialogDescription>
+            </DialogHeader>
+            <CoursePreview
+              title={title}
+              chapter={chapter}
+              content={content}
+              instructor={instructorName}
+            />
+            <div className="flex justify-between gap-2 mt-2">
+              <Button variant="outline" onClick={() => setStep("editor")}>
+                <Pencil className="h-4 w-4" /> Modifier
+              </Button>
+              <Button onClick={() => setStep("supports")}>
+                <Check className="h-4 w-4" /> Confirmer et continuer
+              </Button>
+            </div>
+          </>
+        )}
+
+        {/* STEP 5 — SUPPORTS */}
         {step === "supports" && (
           <>
             <DialogHeader>
