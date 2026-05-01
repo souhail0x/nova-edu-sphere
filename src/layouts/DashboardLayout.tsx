@@ -53,7 +53,7 @@ const DashboardLayout: React.FC<{ children: React.ReactNode }> = ({ children }) 
   const [profileOpen, setProfileOpen] = useState(false);
 
   if (!user) return null;
-  const menu = roleMenus[user.role];
+  const menu = roleMenus[user.role as keyof typeof roleMenus] || roleMenus.student;
 
   const handleLogout = () => {
     logout();
@@ -122,9 +122,13 @@ const DashboardLayout: React.FC<{ children: React.ReactNode }> = ({ children }) 
             <button onClick={() => setSidebarOpen(true)} className="lg:hidden text-foreground">
               <Menu className="h-5 w-5" />
             </button>
-            <div className="hidden md:flex items-center gap-2 bg-secondary rounded-lg px-3 py-2 w-72">
+            <div className="hidden md:flex items-center gap-2 bg-muted/50 border border-border/50 rounded-lg px-3 py-1.5 w-72 focus-within:ring-2 focus-within:ring-primary/20 focus-within:bg-background transition-all">
               <Search className="h-4 w-4 text-muted-foreground" />
-              <input type="text" placeholder="Search..." className="bg-transparent text-sm outline-none w-full text-foreground placeholder:text-muted-foreground" />
+              <input 
+                type="text" 
+                placeholder="Rechercher..." 
+                className="bg-transparent text-sm outline-none w-full text-foreground placeholder:text-muted-foreground" 
+              />
             </div>
           </div>
 

@@ -18,10 +18,28 @@ const Login = () => {
     e.preventDefault();
     setLoading(true);
     try {
-      await login(email, password);
-      navigate("/dashboard");
-    } catch {
-      toast({ title: "Erreur", description: "Identifiants invalides", variant: "destructive" });
+      const user = await login(email, password);
+      toast({ title: "Succès", description: "Connexion réussie ! Bienvenue." });
+      
+      // Redirection basée sur le rôle
+      switch (user.role) {
+        case "admin":
+          navigate("/dashboard/users");
+          break;
+        case "moderator":
+          navigate("/dashboard/community");
+          break;
+        case "teacher":
+          navigate("/dashboard");
+          break;
+        case "student":
+          navigate("/dashboard");
+          break;
+        default:
+          navigate("/dashboard");
+      }
+    } catch (error: any) {
+      toast({ title: "Erreur", description: error.message || "Identifiants invalides", variant: "destructive" });
     } finally {
       setLoading(false);
     }
