@@ -36,6 +36,7 @@ const roleMenus = {
     { label: "Announcements", icon: Bell, path: "/dashboard/announcements" },
     { label: "Calendar", icon: Calendar, path: "/dashboard/calendar" },
     { label: "Niveaux", icon: Layers, path: "/dashboard/niveaux" },
+    { label: "Modules", icon: BookOpen, path: "/dashboard/modules" },
     { label: "Messages", icon: MessageSquare, path: "/dashboard/messages" },
   ],
   admin: [
@@ -43,6 +44,7 @@ const roleMenus = {
     { label: "Users", icon: UserCog, path: "/dashboard/users" },
     { label: "Analytics", icon: BarChart3, path: "/dashboard/analytics" },
     { label: "Niveaux", icon: Layers, path: "/dashboard/niveaux" },
+    { label: "Modules", icon: BookOpen, path: "/dashboard/modules" },
     { label: "Settings", icon: Settings, path: "/dashboard/settings" },
   ],
 };
