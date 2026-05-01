@@ -72,16 +72,24 @@ const UsersPage = () => {
       let data = Array.isArray(response.data) ? response.data : response.data.content || [];
 
       // Normalisation des données pour éviter les crashs
-      const normalizedData = data.map((u: any) => ({
-        ...u,
-        nom: u.nom || "",
-        prenom: u.prenom || "",
-        role: (u.role || u.roleName || "student").replace('ROLE_', '').toLowerCase(),
-        email: u.email || u.username || "Pas d'email",
-        telephone: u.telephone || "",
-        specialite: u.specialite || "",
-        type: u.type || ""
-      }));
+      const normalizedData = data.map((u: any) => {
+        let role = (u.role || u.roleName || "student").replace('ROLE_', '').toLowerCase();
+        if (role.includes('prof') || role.includes('teach') || role.includes('enseig')) role = 'teacher';
+        else if (role.includes('etud') || role.includes('stud')) role = 'student';
+        else if (role.includes('admin')) role = 'admin';
+        else if (role.includes('moder')) role = 'moderator';
+
+        return {
+          ...u,
+          nom: u.nom || "",
+          prenom: u.prenom || "",
+          role: role,
+          email: u.email || u.username || "Pas d'email",
+          telephone: u.telephone || "",
+          specialite: u.specialite || "",
+          type: u.type || ""
+        };
+      });
 
       setUsers(normalizedData);
     } catch (error) {
@@ -134,7 +142,8 @@ const UsersPage = () => {
     const roleEndpointMap: Record<string, string> = {
       student: "etudiants",
       teacher: "enseignants",
-      moderator: "moderateurs"
+      moderator: "moderateurs",
+      admin: "utilisateurs" // Hypothèse pour l'admin
     };
 
     const rolePath = roleEndpointMap[formData.role];
