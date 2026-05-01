@@ -3,7 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "@/context/AuthContext";
 import {
   Home, BookOpen, FileText, BarChart3, Heart, MessageSquare, Users, Calendar,
-  Video, Settings, LogOut, Menu, X, Bell, Search, GraduationCap, Shield, UserCog, ChevronDown
+  Video, Settings, LogOut, Menu, X, Bell, Search, GraduationCap, Shield, UserCog, ChevronDown, Layers
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -35,12 +35,14 @@ const roleMenus = {
     { label: "Students", icon: GraduationCap, path: "/dashboard/students" },
     { label: "Announcements", icon: Bell, path: "/dashboard/announcements" },
     { label: "Calendar", icon: Calendar, path: "/dashboard/calendar" },
+    { label: "Niveaux", icon: Layers, path: "/dashboard/niveaux" },
     { label: "Messages", icon: MessageSquare, path: "/dashboard/messages" },
   ],
   admin: [
     { label: "Dashboard", icon: Home, path: "/dashboard" },
     { label: "Users", icon: UserCog, path: "/dashboard/users" },
     { label: "Analytics", icon: BarChart3, path: "/dashboard/analytics" },
+    { label: "Niveaux", icon: Layers, path: "/dashboard/niveaux" },
     { label: "Settings", icon: Settings, path: "/dashboard/settings" },
   ],
 };

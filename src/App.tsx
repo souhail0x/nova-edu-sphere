@@ -18,6 +18,7 @@ import Messages from "@/pages/Messages";
 import Stream from "@/pages/Stream";
 import UsersPage from "@/pages/UsersPage";
 import TeacherAnalytics from "@/pages/TeacherAnalytics";
+import NiveauxPage from "@/pages/NiveauxPage";
 import NotFound from "@/pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -63,6 +64,7 @@ const AppRoutes = () => {
       <Route path="/dashboard/stream" element={<ProtectedRoute><Stream /></ProtectedRoute>} />
       <Route path="/dashboard/users" element={<ProtectedRoute><UsersPage /></ProtectedRoute>} />
       <Route path="/dashboard/students" element={<ProtectedRoute><UsersPage /></ProtectedRoute>} />
+      <Route path="/dashboard/niveaux" element={<ProtectedRoute><NiveauxPage /></ProtectedRoute>} />
       <Route path="/dashboard/teacher-analytics" element={<ProtectedRoute><TeacherAnalytics /></ProtectedRoute>} />
       <Route path="/dashboard/questions" element={<ProtectedRoute><Messages /></ProtectedRoute>} />
       <Route path="/dashboard/announcements" element={<ProtectedRoute><Community /></ProtectedRoute>} />
